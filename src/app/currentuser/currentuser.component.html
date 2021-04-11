@@ -1,0 +1,23 @@
+<li class="list-group-item" (click)="sendMessage()"
+ [routerLink] = "['/users']"
+  [queryParams]="{age: user.age, name: user.name}"
+  queryParamsHandling="merge"
+>
+    <div *ngIf="user.age > 18 || isLoggedIn; else hiddenDataTemplete">
+        <span [ngSwitch]="user.job">
+            <i *ngSwitchCase="'student'" class="fa fa-graduation-cap"></i>
+            <i *ngSwitchCase="'doctor'" class="fa fa-user-md"></i>
+            <i *ngSwitchCase="'engineer'" class="fa fa-cogs"></i>
+            <i *ngSwitchCase="'developer'" class="fa fa-desktop"></i>
+            <i *ngSwitchDefault class="fa fa-user"></i>
+        </span>
+        {{i}} {{user.name}}
+    </div>
+   
+    <ng-template #hiddenDataTemplete>
+        <div appHighlight>
+            <p>Hiden User</p>
+        </div>
+    </ng-template>
+</li>
+

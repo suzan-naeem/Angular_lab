@@ -1,0 +1,22 @@
+<div class="row p-2" *ngIf="!isLoggedIn; else welcomeTemplate" >
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="User name" [(ngModel)]="userName" (input)="onInput()">
+        <div class="input-group-append">
+            <input type="button" class="btn btn-outline-success" value="Login" (click)="login()">
+        </div>
+    </div>
+
+    
+</div>
+
+
+<ng-template #welcomeTemplate>
+    <div class="row p-2 mb-3">
+        <div class="col-md-8">
+           <span class="alert alert-primary">welcome {{userName}}</span>
+        </div>
+        <div class="col-md-4">
+            <input type="button" class="btn btn-outline-danger float-right" value="Logout" (click)="logout()">
+        </div>
+    </div>
+</ng-template>

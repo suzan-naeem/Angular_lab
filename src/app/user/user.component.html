@@ -1,0 +1,9 @@
+<p>
+    {{message || "No message yet."}}
+</p>
+
+<ul class="list-group">
+    <app-currentuser *ngFor="let currentuser of users" [user]="currentuser"(messageEvent)="recieveMessage($event)">
+        
+    </app-currentuser>
+</ul>
